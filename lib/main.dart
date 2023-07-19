@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+import 'package:meals_app/screens/tabs_screen.dart';
 
 // import 'models/meal.dart';
-import 'screens/categories_scrn.dart';
+// import 'screens/categories_scrn.dart';
 // import '../models/meal.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
           brightness: Brightness.dark,
@@ -26,7 +27,7 @@ class App extends StatelessWidget {
         textTheme: GoogleFonts.latoTextTheme(),
       ),
       themeMode: ThemeMode.dark,
-      home: const CategoriesScreen(),
+      home: const TabsScreen(),
       // routes: {
       //   MealsScreen.mealScreen: (context) => MealsScreen(
       //         title: 'Some Category',
