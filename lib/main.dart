@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+import 'package:meals_app/screens/tabs_screen.dart';
 
 // import 'models/meal.dart';
 import 'screens/categories_scrn.dart';
@@ -26,7 +27,7 @@ class App extends StatelessWidget {
         textTheme: GoogleFonts.latoTextTheme(),
       ),
       themeMode: ThemeMode.dark,
-      home: const CategoriesScreen(),
+      home: const TabsScreen(),
       // routes: {
       //   MealsScreen.mealScreen: (context) => MealsScreen(
       //         title: 'Some Category',
