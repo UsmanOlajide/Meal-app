@@ -15,8 +15,8 @@ class MealDetailScreen extends StatelessWidget {
         actions: [
           IconButton(
             iconSize: 30,
-            padding: EdgeInsets.only(right: 15),
-            icon: Icon(Icons.star),
+            padding: const EdgeInsets.only(right: 15),
+            icon: const Icon(Icons.star),
             onPressed: () {},
           ),
         ],
@@ -32,14 +32,14 @@ class MealDetailScreen extends StatelessWidget {
                   color: Theme.of(context).colorScheme.primary,
                   fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             for (final ingredient in meal.ingredients)
               Text(
                 ingredient,
                 style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                     color: Theme.of(context).colorScheme.onBackground),
               ),
-            SizedBox(height: 25),
+            const SizedBox(height: 25),
             Text(
               'Steps',
               textAlign: TextAlign.center,

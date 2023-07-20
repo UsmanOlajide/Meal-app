@@ -16,7 +16,7 @@ var selectedIndex = 0;
 
 final screens = [
   const CategoriesScreen(),
-  // const FavoritesScreen(),
+  const FavoritesScreen(),
   // const MealsScreen(title: 'Favorites', meals: )
 ];
 
