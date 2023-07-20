@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/screens/categories_scrn.dart';
 import 'package:meals_app/screens/favorites_screen.dart';
+import 'package:meals_app/screens/meals_scrn.dart';
 // import 'package:meals_app/screens/categories_scrn.dart';
 // import 'package:meals_app/screens/favorites_screen.dart';
 
@@ -12,10 +13,11 @@ class TabsScreen extends StatefulWidget {
 }
 
 var selectedIndex = 0;
-var selectedIndexx = 0;
+
 final screens = [
   const CategoriesScreen(),
-  const FavoritesScreen(),
+  // const FavoritesScreen(),
+  // const MealsScreen(title: 'Favorites', meals: )
 ];
 
 class _TabsScreenState extends State<TabsScreen> {
@@ -44,3 +46,6 @@ class _TabsScreenState extends State<TabsScreen> {
     );
   }
 }
+
+    // Meals screen requires a new list of meals which will be a list of favorite meals
+    // How do I add a meal item to the list of favorite meals
