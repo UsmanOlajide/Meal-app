@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:meals_app/screens/meal_detail_scrn.dart';
 import 'package:meals_app/widgets/meal_item.dart';
 
+import '../data/dummy_data.dart';
 import '../models/meal.dart';
 // import '../models/meal_detail.dart';
 
@@ -23,6 +24,14 @@ class MealsScreen extends StatelessWidget {
         builder: (_) {
           return MealDetailScreen(
             meal: meal,
+            faveMeals: meals,
+            // addFave: addFave,
+            // addFave: (Meal myMeal) {
+            //   final meals = dummyMeals.where((meal) {
+            //     return meal.id == myMeal.id;
+            //   }).toList();
+            //   meals.add(myMeal);
+            // },
           );
         },
       ),

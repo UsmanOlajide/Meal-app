@@ -1,14 +1,28 @@
 import 'package:flutter/material.dart';
 
+import '../data/dummy_data.dart';
 import '../models/meal.dart';
 
 class MealDetailScreen extends StatelessWidget {
-  const MealDetailScreen({super.key, required this.meal});
+  const MealDetailScreen(
+      {super.key, required this.meal, required this.faveMeals});
 
   final Meal meal;
+  final List<Meal> faveMeals;
+
+  // final void Function(Meal meal) addFave;
 
   @override
   Widget build(BuildContext context) {
+    // //* METHOD-----------------------------------
+    void addFave(Meal meal) {
+      final faveMeals = dummyMeals.where((meal) {
+        return meal.id == meal.id;
+      }).toList();
+      faveMeals.add(meal);
+    }
+    // //* -----------------------------------------
+
     return Scaffold(
       appBar: AppBar(
         title: Text(meal.title),
@@ -17,7 +31,7 @@ class MealDetailScreen extends StatelessWidget {
             iconSize: 30,
             padding: const EdgeInsets.only(right: 15),
             icon: const Icon(Icons.star),
-            onPressed: () {},
+            onPressed: () => addFave(meal),
           ),
         ],
       ),
