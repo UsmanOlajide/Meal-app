@@ -2,19 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:meals_app/screens/meal_detail_scrn.dart';
 import 'package:meals_app/widgets/meal_item.dart';
 
-import '../data/dummy_data.dart';
 import '../models/meal.dart';
 // import '../models/meal_detail.dart';
 
 class MealsScreen extends StatelessWidget {
   const MealsScreen({
     super.key,
-    required this.title,
+    this.title,
     required this.meals,
+    required this.toggleFave,
   });
 
-  final String title;
+  final String? title;
   final List<Meal> meals;
+  final void Function(Meal meal) toggleFave;
   // static const mealScreen = '/mealscreen';
 
   //* METHODS--------------------------------------------
@@ -23,8 +24,8 @@ class MealsScreen extends StatelessWidget {
       MaterialPageRoute(
         builder: (_) {
           return MealDetailScreen(
-            meal: meal,
-            faveMeals: meals,
+            meal: meal, toggleFave: toggleFave,
+
             // addFave: addFave,
             // addFave: (Meal myMeal) {
             //   final meals = dummyMeals.where((meal) {
@@ -47,28 +48,38 @@ class MealsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Widget bodyContent = Center(
+        child: Text(
+      'Nothing to show',
+      style: Theme.of(context)
+          .textTheme
+          .titleLarge!
+          .copyWith(color: Theme.of(context).colorScheme.onBackground),
+    ));
+    //*--------------content to show when theres nothing in list
+
+    if (meals.isNotEmpty) {
+      bodyContent = ListView.builder(
+        itemBuilder: (ctx, index) {
+          // return Text(meals[index].title);
+          return MealItem(
+              meal: meals[index],
+              onSelectMeal: (meal) {
+                selectMealItem(context, meal);
+              });
+        },
+        itemCount: meals.length,
+      );
+    }
+    //*--------------content to show when list is not empty
+
+    if (title == null) {
+      return bodyContent;
+    }
+
     return Scaffold(
-      appBar: AppBar(title: Text(title)),
-      body: meals.isEmpty
-          ? Center(
-              child: Text(
-              'Nothing to show',
-              style: Theme.of(context)
-                  .textTheme
-                  .titleLarge!
-                  .copyWith(color: Theme.of(context).colorScheme.onBackground),
-            ))
-          : ListView.builder(
-              itemBuilder: (ctx, index) {
-                // return Text(meals[index].title);
-                return MealItem(
-                    meal: meals[index],
-                    onSelectMeal: (meal) {
-                      selectMealItem(context, meal);
-                    });
-              },
-              itemCount: meals.length,
-            ),
+      appBar: AppBar(title: Text(title!)),
+      body: bodyContent,
     );
   }
 }
