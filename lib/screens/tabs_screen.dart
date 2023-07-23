@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+
 import 'package:meals_app/screens/categories_scrn.dart';
 
 import 'package:meals_app/screens/meals_scrn.dart';
 
-import 'favorites_scrn.dart';
+import '../models/meal.dart';
+
 // import 'package:meals_app/screens/categories_scrn.dart';
 // import 'package:meals_app/screens/favorites_screen.dart';
 
@@ -14,30 +16,46 @@ class TabsScreen extends StatefulWidget {
   State<TabsScreen> createState() => _TabsScreenState();
 }
 
-var selectedIndex = 0;
-
 class _TabsScreenState extends State<TabsScreen> {
-  final screens = [
-    const CategoriesScreen(),
-    const FavoritesScreen(),
-  ];
+  var _selectedIndex = 0;
+  final List<Meal> _faveMeals = [];
+
   void _selectPage(int index) {
     setState(() {
-      selectedIndex = index;
+      _selectedIndex = index;
     });
   }
 
-  void addToFave() {}
+  void _toggleFave(Meal meal) {
+    var isExisting = _faveMeals.contains(meal);
+    if (isExisting) {
+      _faveMeals.remove(meal);
+    } else {
+      _faveMeals.add(meal);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+    Widget activeScreen = CategoriesScreen(
+      toggleFave: _toggleFave,
+    );
+    var activeScreenTitle = 'Categories';
+    if (_selectedIndex == 1) {
+      activeScreen = MealsScreen(
+        meals: const [],
+        toggleFave: _toggleFave,
+      );
+      activeScreenTitle = 'Your Favorites';
+    }
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('dynamic'),
+        title: Text(activeScreenTitle),
       ),
-      body: screens[selectedIndex],
+      body: activeScreen,
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: selectedIndex,
+        currentIndex: _selectedIndex,
         onTap: _selectPage,
         items: const [
           BottomNavigationBarItem(

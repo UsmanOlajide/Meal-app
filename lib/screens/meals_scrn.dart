@@ -8,12 +8,14 @@ import '../models/meal_detail.dart';
 class MealsScreen extends StatelessWidget {
   const MealsScreen({
     super.key,
-    required this.title,
+    this.title,
     required this.meals,
+    required this.toggleFave,
   });
 
-  final String title;
+  final String? title;
   final List<Meal> meals;
+  final void Function(Meal meal) toggleFave;
   // static const mealScreen = '/mealscreen';
 
   //* METHODS--------------------------------------------
@@ -23,6 +25,7 @@ class MealsScreen extends StatelessWidget {
         builder: (_) {
           return MealDetailScreen(
             meal: meal,
+            toggleFave: (Meal meal) {},
           );
         },
       ),
@@ -38,28 +41,36 @@ class MealsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Widget content = Center(
+        child: Text(
+      'Nothing to show',
+      style: Theme.of(context)
+          .textTheme
+          .titleLarge!
+          .copyWith(color: Theme.of(context).colorScheme.onBackground),
+    ));
+
+    if (meals.isNotEmpty) {
+      return ListView.builder(
+        itemBuilder: (ctx, index) {
+          // return Text(meals[index].title);
+          return MealItem(
+              meal: meals[index],
+              onSelectMeal: (meal) {
+                selectMealItem(context, meal);
+              });
+        },
+        itemCount: meals.length,
+      );
+    }
+
+    if (title == null) {
+      return content;
+    }
+
     return Scaffold(
-      appBar: AppBar(title: Text(title)),
-      body: meals.isEmpty
-          ? Center(
-              child: Text(
-              'Nothing to show',
-              style: Theme.of(context)
-                  .textTheme
-                  .titleLarge!
-                  .copyWith(color: Theme.of(context).colorScheme.onBackground),
-            ))
-          : ListView.builder(
-              itemBuilder: (ctx, index) {
-                // return Text(meals[index].title);
-                return MealItem(
-                    meal: meals[index],
-                    onSelectMeal: (meal) {
-                      selectMealItem(context, meal);
-                    });
-              },
-              itemCount: meals.length,
-            ),
+      appBar: AppBar(title: Text(title!)),
+      body: content,
     );
   }
 }
