@@ -3,7 +3,7 @@ import 'package:meals_app/data/dummy_data.dart';
 import 'package:meals_app/screens/categories_scrn.dart';
 
 // import 'package:meals_app/screens/categories_scrn.dart';
-import 'package:meals_app/screens/favorites_screen.dart';
+
 import 'package:meals_app/screens/meals_scrn.dart';
 
 import '../models/meal.dart';
@@ -32,18 +32,7 @@ class _TabsScreenState extends State<TabsScreen> {
     });
   }
 
-  void tsoggleFave(Meal myMeal) {
-    final faveMeals = dummyMeals.where((meal) {
-      return meal.id == myMeal.id;
-    }).toList();
-    faveMeals.add(myMeal);
-    //* This logic is to get a filtered list of meals where the id of the meal i am acting on is equal to the id of a meal, it wont work this way cos the list now depends on the method and there is no way to use that list, so the best way was to make that list available widely
-    //* The new logic is now to check if a meal is already in the faveMeals list, if so then when i try toggle the button it should be removed from the list,
-    //* But if the meal is not there already then it should be added
-  }
-
   void toggleFave(Meal meal) {}
-  //* -----------------------------------------
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +51,7 @@ class _TabsScreenState extends State<TabsScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('dynamic'),
+        title: Text(activeScreenTitle),
       ),
       body: activeScreen,
       bottomNavigationBar: BottomNavigationBar(
