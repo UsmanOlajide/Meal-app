@@ -49,3 +49,13 @@ class App extends StatelessWidget {
 //* ----When a switch is on, it should stay that way even when I leave that screen and go back to it
 //* 
 //* 
+
+//* MAIN GOAL IN THIS NEW BRANCH
+//* The idea is to find a way to pass the data I use in Filters screen onto Meals screen
+//*
+//* STRATEGY
+//* - Create a button in the appbar of Filters screen that pops back to the tabscreen ✅
+//* - Then I pass the data I want to use in the arg of the pop
+//*
+//*
+//*
