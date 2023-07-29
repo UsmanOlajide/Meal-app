@@ -85,12 +85,12 @@ const dummyMeals = [
       'In the meantime, heaten up some olive oil and add the cut onion.',
       'After 2 minutes, add the tomato pieces, salt, pepper and your other spices.',
       'The sauce will be done once the spaghetti are.',
-      'Feel free to add some cheese on top of the finished dish.'
+      'Feel free to add some cheese on top of the finhed dh.'
     ],
-    isGlutenFree: false,
-    isVegan: true,
-    isVegetarian: true,
-    isLactoseFree: true,
+    glutenFree: false,
+    vegan: true,
+    vegetarian: true,
+    lactoseFree: true,
   ),
   Meal(
     id: 'm2',
@@ -115,10 +115,10 @@ const dummyMeals = [
       'Layer ham, the pineapple and cheese on the white bread',
       'Bake the toast for round about 10 minutes in the oven at 200°C'
     ],
-    isGlutenFree: false,
-    isVegan: false,
-    isVegetarian: false,
-    isLactoseFree: false,
+    glutenFree: false,
+    vegan: false,
+    vegetarian: false,
+    lactoseFree: false,
   ),
   Meal(
     id: 'm3',
@@ -147,10 +147,10 @@ const dummyMeals = [
       'Bruch buns with ketchup',
       'Serve burger with tomato, cucumber and onion'
     ],
-    isGlutenFree: false,
-    isVegan: false,
-    isVegetarian: false,
-    isLactoseFree: true,
+    glutenFree: false, // does not contain gluten
+    vegan: false, // it  vegan
+    vegetarian: false, // it  vegetarian
+    lactoseFree: true, // does not contain lactose
   ),
   Meal(
     id: 'm4',
@@ -180,12 +180,12 @@ const dummyMeals = [
       'Heat the butter and oil in a large pan (allow the fat to get very hot) and fry the schnitzels until golden brown on both sides.',
       'Make sure to toss the pan regularly so that the schnitzels are surrounded by oil and the crumbing becomes ‘fluffy’.',
       'Remove, and drain on kitchen paper. Fry the parsley in the remaining oil and drain.',
-      'Place the schnitzels on awarmed plate and serve garnishedwith parsley and slices of lemon.'
+      'Place the schnitzels on awarmed plate and serve garnhedwith parsley and slices of lemon.'
     ],
-    isGlutenFree: false,
-    isVegan: false,
-    isVegetarian: false,
-    isLactoseFree: false,
+    glutenFree: false,
+    vegan: false,
+    vegetarian: false,
+    lactoseFree: false,
   ),
   Meal(
     id: 'm5',
@@ -218,10 +218,10 @@ const dummyMeals = [
       'Prepare the salad',
       'Add salmon cubes and dressing'
     ],
-    isGlutenFree: true,
-    isVegan: false,
-    isVegetarian: true,
-    isLactoseFree: true,
+    glutenFree: true,
+    vegan: false,
+    vegetarian: true,
+    lactoseFree: true,
   ),
   Meal(
     id: 'm6',
@@ -244,7 +244,7 @@ const dummyMeals = [
       'Orange Peel',
     ],
     steps: [
-      'Dissolve gelatine in pot',
+      'Dsolve gelatine in pot',
       'Add orange juice and sugar',
       'Take pot off the stove',
       'Add 2 tablespoons of yoghurt',
@@ -254,10 +254,10 @@ const dummyMeals = [
       'Cool down again for at least 4 hours',
       'Serve with orange peel',
     ],
-    isGlutenFree: true,
-    isVegan: false,
-    isVegetarian: true,
-    isLactoseFree: false,
+    glutenFree: true,
+    vegan: false,
+    vegetarian: true,
+    lactoseFree: false,
   ),
   Meal(
     id: 'm7',
@@ -285,10 +285,10 @@ const dummyMeals = [
       'Heat a lightly oiled griddle or frying pan over medium high heat.',
       'Pour or scoop the batter onto the griddle, using approximately 1/4 cup for each pancake. Brown on both sides and serve hot.'
     ],
-    isGlutenFree: true,
-    isVegan: false,
-    isVegetarian: true,
-    isLactoseFree: false,
+    glutenFree: true,
+    vegan: false,
+    vegetarian: true,
+    lactoseFree: false,
   ),
   Meal(
     id: 'm8',
@@ -318,10 +318,10 @@ const dummyMeals = [
       'Add coconut milk',
       'Serve with rice'
     ],
-    isGlutenFree: true,
-    isVegan: false,
-    isVegetarian: false,
-    isLactoseFree: true,
+    glutenFree: true,
+    vegan: false,
+    vegetarian: false,
+    lactoseFree: true,
   ),
   Meal(
     id: 'm9',
@@ -354,23 +354,23 @@ const dummyMeals = [
       'Add 1 tablespoon white sugar to ramekins. Rotate ramekins until sugar coats all surfaces.',
       'Place chocolate pieces in a metal mixing bowl.',
       'Place bowl over a pan of about 3 cups hot water over low heat.',
-      'Melt 1 tablespoon butter in a skillet over medium heat. Sprinkle in flour. Whisk until flour is incorporated into butter and mixture thickens.',
-      'Whisk in cold milk until mixture becomes smooth and thickens. Transfer mixture to bowl with melted chocolate.',
+      'Melt 1 tablespoon butter in a skillet over medium heat. Sprinkle in flour. Whk until flour  incorporated into butter and mixture thickens.',
+      'Whk in cold milk until mixture becomes smooth and thickens. Transfer mixture to bowl with melted chocolate.',
       'Add salt and cayenne pepper. Mix together thoroughly. Add egg yolk and mix to combine.',
       'Leave bowl above the hot (not simmering) water to keep chocolate warm while you whip the egg whites.',
-      'Place 2 egg whites in a mixing bowl; add cream of tartar. Whisk until mixture begins to thicken and a drizzle from the whisk stays on the surface about 1 second before disappearing into the mix.',
-      'Add 1/3 of sugar and whisk in. Whisk in a bit more sugar about 15 seconds.',
-      'whisk in the rest of the sugar. Continue whisking until mixture is about as thick as shaving cream and holds soft peaks, 3 to 5 minutes.',
+      'Place 2 egg whites in a mixing bowl; add cream of tartar. Whk until mixture begins to thicken and a drizzle from the whk stays on the surface about 1 second before dappearing into the mix.',
+      'Add 1/3 of sugar and whk in. Whk in a bit more sugar about 15 seconds.',
+      'whk in the rest of the sugar. Continue whking until mixture  about as thick as shaving cream and holds soft peaks, 3 to 5 minutes.',
       'Transfer a little less than half of egg whites to chocolate.',
       'Mix until egg whites are thoroughly incorporated into the chocolate.',
       'Add the rest of the egg whites; gently fold into the chocolate with a spatula, lifting from the bottom and folding over.',
-      'Stop mixing after the egg white disappears. Divide mixture between 2 prepared ramekins. Place ramekins on prepared baking sheet.',
-      'Bake in preheated oven until scuffles are puffed and have risen above the top of the rims, 12 to 15 minutes.',
+      'Stop mixing after the egg white dappears. Divide mixture between 2 prepared ramekins. Place ramekins on prepared baking sheet.',
+      'Bake in preheated oven until scuffles are puffed and have ren above the top of the rims, 12 to 15 minutes.',
     ],
-    isGlutenFree: true,
-    isVegan: false,
-    isVegetarian: true,
-    isLactoseFree: false,
+    glutenFree: true,
+    vegan: false,
+    vegetarian: true,
+    lactoseFree: false,
   ),
   Meal(
     id: 'm10',
@@ -401,9 +401,9 @@ const dummyMeals = [
       'Mix with asparagus, salad and dressing',
       'Serve with Baguette'
     ],
-    isGlutenFree: true,
-    isVegan: true,
-    isVegetarian: true,
-    isLactoseFree: true,
+    glutenFree: true,
+    vegan: true,
+    vegetarian: true,
+    lactoseFree: true,
   ),
 ];

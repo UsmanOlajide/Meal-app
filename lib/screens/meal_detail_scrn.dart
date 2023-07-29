@@ -7,10 +7,12 @@ class MealDetailScreen extends StatelessWidget {
     super.key,
     required this.meal,
     required this.toggleFave,
+    // required this.faveMeals,
   });
 
   final Meal meal;
   final void Function(Meal meal) toggleFave;
+  // final List<Meal> faveMeals;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class MealDetailScreen extends StatelessWidget {
         title: Text(meal.title),
         actions: [
           IconButton(
-              onPressed: () {},
+              onPressed: () => toggleFave(meal),
               icon: Icon(
                 Icons.star,
               ))
@@ -36,14 +38,14 @@ class MealDetailScreen extends StatelessWidget {
                   color: Theme.of(context).colorScheme.primary,
                   fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             for (final ingredient in meal.ingredients)
               Text(
                 ingredient,
                 style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                     color: Theme.of(context).colorScheme.onBackground),
               ),
-            SizedBox(height: 25),
+            const SizedBox(height: 25),
             Text(
               'Steps',
               textAlign: TextAlign.center,

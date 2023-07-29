@@ -3,7 +3,6 @@ import 'package:meals_app/screens/meal_detail_scrn.dart';
 import 'package:meals_app/widgets/meal_item.dart';
 
 import '../models/meal.dart';
-import '../models/meal_detail.dart';
 
 class MealsScreen extends StatelessWidget {
   const MealsScreen({
@@ -25,7 +24,7 @@ class MealsScreen extends StatelessWidget {
         builder: (_) {
           return MealDetailScreen(
             meal: meal,
-            toggleFave: (Meal meal) {},
+            toggleFave: toggleFave,
           );
         },
       ),

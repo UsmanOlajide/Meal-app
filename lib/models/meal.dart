@@ -22,10 +22,10 @@ class Meal {
     required this.duration,
     required this.ingredients,
     required this.steps,
-    required this.isGlutenFree,
-    required this.isVegan,
-    required this.isVegetarian,
-    required this.isLactoseFree,
+    required this.glutenFree,
+    required this.vegan,
+    required this.vegetarian,
+    required this.lactoseFree,
   });
 
   final String id;
@@ -37,8 +37,8 @@ class Meal {
   final int duration;
   final List<String> ingredients;
   final List<String> steps;
-  final bool isGlutenFree;
-  final bool isVegan;
-  final bool isVegetarian;
-  final bool isLactoseFree;
+  final bool glutenFree;
+  final bool vegan;
+  final bool vegetarian;
+  final bool lactoseFree;
 }
