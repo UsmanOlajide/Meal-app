@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:meals_app/widgets/cat_grid_item.dart';
 import '../data/dummy_data.dart';
 import '../models/meal.dart';
+
 import 'meals_scrn.dart';
 import '../models/meal_category.dart';
 
@@ -9,7 +10,9 @@ import '../models/meal_category.dart';
 
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({super.key, required this.toggleFave});
+
   final void Function(Meal meal) toggleFave;
+
   void selectCategory(BuildContext context, MealCategory mealCategory) {
     final filteredMeals = dummyMeals
         .where((meal) => meal.categories.contains(mealCategory.id))

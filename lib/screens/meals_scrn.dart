@@ -17,7 +17,7 @@ class MealsScreen extends StatelessWidget {
   final void Function(Meal meal) toggleFave;
   // static const mealScreen = '/mealscreen';
 
-  //* METHODS--------------------------------------------
+  // METHODS--------------------------------------------
   void selectMealItem(BuildContext context, Meal meal) {
     Navigator.of(context).push(
       MaterialPageRoute(
@@ -30,7 +30,7 @@ class MealsScreen extends StatelessWidget {
       ),
     );
   }
-  //* ----------------------------------------------------
+  // ----------------------------------------------------
 
   // void selectMealItem(BuildContext context, Meal meal,  mealDetailList) {
   //   Navigator.of(context).push(MaterialPageRoute(builder: (_) {

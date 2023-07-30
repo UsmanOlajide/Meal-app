@@ -11,6 +11,13 @@ import '../models/meal.dart';
 // import 'package:meals_app/screens/categories_scrn.dart';
 // import 'package:meals_app/screens/favorites_screen.dart';
 
+const kInitialValues = {
+  Filter.gluten: false,
+  Filter.lactose: false,
+  Filter.vegetarin: false,
+  Filter.vegan: false,
+};
+
 class TabsScreen extends StatefulWidget {
   const TabsScreen({super.key});
 
@@ -21,6 +28,8 @@ class TabsScreen extends StatefulWidget {
 class _TabsScreenState extends State<TabsScreen> {
   var _selectedIndex = 0;
   final List<Meal> _faveMeals = [];
+
+  Map<Filter, bool> _selectedFilters = kInitialValues;
 
   void _selectPage(int index) {
     setState(() {
@@ -52,21 +61,30 @@ class _TabsScreenState extends State<TabsScreen> {
     ));
   }
 
-  void _onSelectScreen(String identifier) {
+  void _onSelectScreen(String identifier) async {
     Navigator.of(context).pop();
     if (identifier == 'Filters') {
-      Navigator.of(context).push(
+      final result = await Navigator.of(context).push<Map<Filter, bool>>(
+        // I used await because the data I'm passing from Filters screen back here is returning a Future,
+        // the return value is not available immediately
+        // but at some point in the future when the user navigates back here
         MaterialPageRoute(
           builder: (ctx) {
             return const FiltersScreen();
           },
         ),
       );
+      setState(() {
+        _selectedFilters = result ?? kInitialValues;
+        // I am setting state so that the
+        // updated filters/updated list of meals is now passed to the Categories screen
+      });
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    // var sF = _selectedFilters;
     Widget activeScreen = CategoriesScreen(
       toggleFave: _toggleFave,
     );

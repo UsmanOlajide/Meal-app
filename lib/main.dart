@@ -49,3 +49,30 @@ class App extends StatelessWidget {
 //* ----When a switch is on, it should stay that way even when I leave that screen and go back to it
 //* 
 //* 
+
+//* MAIN GOAL IN THIS NEW BRANCH
+//* The idea is to find a way to pass the data I use in Filters screen onto Meals screen
+//*
+//* STRATEGY 1 ❌
+//* - Create a button in the appbar of Filters screen that pops back to the tabscreen ✅
+//* - Then I pass the data I want to use in the arg of the pop
+//*
+//* STRATEGY 2
+//* - Create conditional statements
+//* - So that will mean if glutenfree is switched on, for each category the meal to be shown will depend on that switch
+//*
+//*
+//* UDEMY STRATEGY
+//* - Wrap the top widget in the body of Filters screen with WillPopScope 
+//* and in the onWillPop function body I create a map 
+//* and a key will refer to the bool values created earlier
+//*
+//*
+//*  NEW GOAL - APPLYING FILTERS
+//*  
+//*  STRATEGY 1
+//*  - Pass the updated meals based on the filters set to the categories screen
+//*  - In the categories screen we then need to pass the filtered meals based on the filters set down to the meals screen 
+//*  
+//*  
+//*  
