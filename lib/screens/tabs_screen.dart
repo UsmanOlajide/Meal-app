@@ -115,23 +115,16 @@ class _TabsScreenState extends State<TabsScreen> {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     // Meals screen requires a new list of meals which will be a list of favorite meals
     // How do I add a meal item to the list of favorite meals
+
+//* I want to make sure to pass the updated list of available meals
+//* based on the selected filters to categories screen
+//* METHOD 1
+//* - Add a new variable to store the selected filters, they will have an initial value of false ✅
+//*   These initial values should now be updated whenever
+//*    I receive new info from the filters screen (when a filter is set)
+
+//* Twisted View on the if statement in onSelectScreen method
+//* Maybe what we are passing an initial Map<Filter,bool> from tabsScreen to filtersScreen
+//* When filterScreen is pressed the filters in tabScreen should now be equal to the filters in filtersScreen
