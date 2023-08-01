@@ -8,8 +8,12 @@ import 'package:meals_app/widgets/drawer_widget.dart';
 
 import '../models/meal.dart';
 
-// import 'package:meals_app/screens/categories_scrn.dart';
-// import 'package:meals_app/screens/favorites_screen.dart';
+const kinitialFilters = {
+  Filter.glutenFree: false,
+  Filter.lactoseFree: false,
+  Filter.vegetarian: false,
+  Filter.vegan: false,
+};
 
 class TabsScreen extends StatefulWidget {
   const TabsScreen({super.key});
@@ -19,8 +23,11 @@ class TabsScreen extends StatefulWidget {
 }
 
 class _TabsScreenState extends State<TabsScreen> {
+  //-FIELDS--------------------------------------
   var _selectedIndex = 0;
   final List<Meal> _faveMeals = [];
+  Map<Filter, bool> _selectedFilters = kinitialFilters;
+  //---------------------------------------------
 
   void _selectPage(int index) {
     setState(() {
@@ -52,16 +59,26 @@ class _TabsScreenState extends State<TabsScreen> {
     ));
   }
 
-  void _onSelectScreen(String identifier) {
+//* This method controls what happens when I select a screen in the drawer
+  void _onSelectScreen(String identifier) async {
     Navigator.of(context).pop();
     if (identifier == 'Filters') {
-      Navigator.of(context).push(
+      final result = await Navigator.of(context).push<Map<Filter, bool>>(
         MaterialPageRoute(
           builder: (ctx) {
             return const FiltersScreen();
           },
         ),
       );
+
+      setState(() {
+        _selectedFilters = result ?? kinitialFilters;
+        // result can be null so we want to add a null condition
+        // so it means when i don't have filters then set selectedFilters to false which is like an initial value for filters
+      });
+
+      //* result which is my Map<Filter,bool> is only accessible in this method
+      //* and I actually need to pass it (filters) to the categories screen
     }
   }
 
@@ -98,5 +115,16 @@ class _TabsScreenState extends State<TabsScreen> {
   }
 }
 
-    // Meals screen requires a new list of meals which will be a list of favorite meals
-    // How do I add a meal item to the list of favorite meals
+// Meals screen requires a new list of meals which will be a list of favorite meals
+// How do I add a meal item to the list of favorite meals
+
+//* I want to make sure to pass the updated list of available meals
+//* based on the selected filters to categories screen
+//* METHOD 1
+//* - Add a new variable to store the selected filters, they will have an initial value of false ✅
+//*   These initial values should now be updated whenever
+//*    I receive new info from the filters screen (when a filter is set)
+
+//* Twisted View
+//* Maybe what we are passing an initial Map<Filter,bool> from tabsScreen to filtersScreen
+//* When filterScreen is pressed the filters in tabScreen should now be equal to the filters in filtersScreen
