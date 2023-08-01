@@ -76,8 +76,8 @@ class _TabsScreenState extends State<TabsScreen> {
       );
       setState(() {
         _selectedFilters = result ?? kInitialValues;
-        // I am setting state so that the
-        // updated filters/updated list of meals is now passed to the Categories screen
+        // result can be null so we want to add a null condition
+        // so it means when i don't have filters then set selectedFilters to false which is like an initial value for filters
       });
     }
   }
@@ -115,6 +115,23 @@ class _TabsScreenState extends State<TabsScreen> {
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // Meals screen requires a new list of meals which will be a list of favorite meals
     // How do I add a meal item to the list of favorite meals
