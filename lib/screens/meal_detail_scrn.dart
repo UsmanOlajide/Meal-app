@@ -18,6 +18,10 @@ class MealDetailScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final faveMeals = ref.watch(favoriteMealsProvider);
+
+    final isFave = faveMeals.contains(meal);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(meal.title),
@@ -35,8 +39,8 @@ class MealDetailScreen extends ConsumerWidget {
                   behavior: SnackBarBehavior.floating,
                 ));
               },
-              icon: const Icon(
-                Icons.star,
+              icon: Icon(
+                isFave ? Icons.star : Icons.star_border,
               ))
         ],
       ),

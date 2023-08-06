@@ -50,26 +50,7 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
   @override
   Widget build(BuildContext context) {
     // Initializations----------------------------------------------
-    final meals = ref.watch(mealsProvider);
-    final activeFilters = ref.watch(filtersProvider);
-    final availableMeals = meals.where((meal) {
-      // I want to return a condition for whether a meal should be shown or not
-      // my own idea was if the filter is set and the meal itself is true for gluten free then show that meal
-      // udemy idea is if the filter is not set and the meal has a false value for gluten free then don't show that meal
-      if (activeFilters[Filter.gluten]! && !meal.glutenFree) {
-        return false; // this means if the filter is set and the meal has a false value for gluten free don't show it
-      }
-      if (activeFilters[Filter.lactose]! && !meal.lactoseFree) {
-        return false;
-      }
-      if (activeFilters[Filter.vegetarian]! && !meal.vegetarian) {
-        return false;
-      }
-      if (activeFilters[Filter.vegan]! && !meal.vegan) {
-        return false;
-      }
-      return true;
-    }).toList();
+    final availableMeals = ref.watch(filteredMealsProvider);
     Widget activeScreen = CategoriesScreen(
       availableMeals: availableMeals,
     );
