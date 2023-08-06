@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:meals_app/providers/favorites_provider.dart';
 import 'package:meals_app/screens/meal_detail_scrn.dart';
 import 'package:meals_app/widgets/meal_item.dart';
 
@@ -9,12 +11,11 @@ class MealsScreen extends StatelessWidget {
     super.key,
     this.title,
     required this.meals,
-    required this.toggleFave,
   });
 
   final String? title;
   final List<Meal> meals;
-  final void Function(Meal meal) toggleFave;
+
   // static const mealScreen = '/mealscreen';
 
   // METHODS--------------------------------------------
@@ -24,7 +25,6 @@ class MealsScreen extends StatelessWidget {
         builder: (_) {
           return MealDetailScreen(
             meal: meal,
-            toggleFave: toggleFave,
           );
         },
       ),

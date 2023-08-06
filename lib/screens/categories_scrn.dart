@@ -9,12 +9,12 @@ import '../models/meal_category.dart';
 // typedef filteredMeals =
 
 class CategoriesScreen extends StatelessWidget {
-  const CategoriesScreen({super.key, required this.toggleFave});
+  const CategoriesScreen({super.key, required this.availableMeals});
 
-  final void Function(Meal meal) toggleFave;
+  final List<Meal> availableMeals;
 
   void selectCategory(BuildContext context, MealCategory mealCategory) {
-    final filteredMeals = dummyMeals
+    final filteredMeals = availableMeals
         .where((meal) => meal.categories.contains(mealCategory.id))
         .toList();
 
@@ -22,9 +22,9 @@ class CategoriesScreen extends StatelessWidget {
       MaterialPageRoute(
         builder: (context) {
           return MealsScreen(
-              title: mealCategory.title,
-              meals: filteredMeals,
-              toggleFave: toggleFave);
+            title: mealCategory.title,
+            meals: filteredMeals,
+          );
         },
       ),
     );

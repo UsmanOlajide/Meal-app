@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:meals_app/screens/tabs_screen.dart';
@@ -7,7 +8,11 @@ import 'package:meals_app/screens/tabs_screen.dart';
 // import '../models/meal.dart';
 
 void main() {
-  runApp(const App());
+  runApp(
+    const ProviderScope(
+      child: App(),
+    ),
+  ); // wrapped with ProviderScope to unclock state management functionality, so that all the widgets in the entire app can use all these riverpod features
 }
 
 class App extends StatelessWidget {
